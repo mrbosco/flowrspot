@@ -6,7 +6,9 @@ interface ButtonProps {
   children: React.ReactNode;
   size?: 'big' | 'regular' | 'small';
   rounded?: boolean;
-  onClick?: () => void; // Add other HTML button attributes as needed
+  hovered?: boolean;
+  onClick?: () => void;
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -14,10 +16,16 @@ const Button: React.FC<ButtonProps> = ({
   size = 'regular',
   rounded = false,
   onClick,
+  className = '',
 }) => {
-  const buttonClasses = classNames(styles.button, styles[size], {
-    [styles.rounded]: rounded,
-  });
+  const buttonClasses = classNames(
+    styles.button,
+    styles[size],
+    {
+      [styles.rounded]: rounded,
+    },
+    className
+  );
 
   return (
     <button className={buttonClasses} onClick={onClick}>

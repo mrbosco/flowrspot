@@ -1,0 +1,74 @@
+@import '../../styles/colors';
+@import '../../styles/spacings';
+
+.card {
+  position: relative;
+  width: 17.5rem;
+  height: 21.875rem;
+  border-radius: 0.1875rem;
+  overflow: hidden;
+
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.cardImage {
+  width: 100%;
+  display: block;
+}
+
+.cardOverlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: spacing('default');
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 89.5%
+  );
+}
+
+.cardFavorite {
+  align-self: flex-end;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: color('white');
+  gap: 0.44rem;
+}
+
+.cardTitle {
+  color: color('white');
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cardSubtitle {
+  color: #fff;
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 0.75rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.75rem; /* 100% */
+  opacity: 0.7;
+}
+
+.cardSightings {
+  font-size: 0.875rem;
+  margin-top: spacing('default');
+}
