@@ -1,0 +1,86 @@
+@import 'colors';
+
+$font-sizes: (
+  'hero': 2.75rem,
+  'h1': 2rem,
+  'h2': 1.5rem,
+  'h3': 1.125rem,
+  'h4': 1rem,
+  'h5': 0.875rem,
+  'h6': 0.75rem,
+  'default': 0.875rem,
+  'paragraph': 0.875rem,
+  'paragraph-small': 0.75rem,
+  'button': 0.75rem,
+  'link': 0.875rem,
+  'caption': 0.75rem,
+);
+
+$font-weights: (
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+);
+
+.hero {
+  font-size: map-get($font-sizes, 'hero');
+  font-weight: map-get($font-weights, 'bold');
+}
+
+h1 {
+  font-size: map-get($font-sizes, 'h1');
+  font-weight: map-get($font-weights, 'semi-bold');
+}
+
+h2 {
+  font-size: map-get($font-sizes, 'h2');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+h3 {
+  font-size: map-get($font-sizes, 'h3');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+h4 {
+  font-size: map-get($font-sizes, 'h4');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+h5 {
+  font-size: map-get($font-sizes, 'h5');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+h6 {
+  font-size: map-get($font-sizes, 'h6');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+p {
+  font-size: map-get($font-sizes, 'h6');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+.paragraph-small {
+  font-size: map-get($font-sizes, 'paragraph-small');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+button {
+  font-size: map-get($font-sizes, 'button');
+  font-weight: map-get($font-weights, 'bold');
+}
+
+a {
+  font-size: map-get($font-sizes, 'link');
+  font-weight: map-get($font-weights, 'medium');
+}
+
+caption {
+  font-size: map-get($font-sizes, 'caption');
+  font-weight: map-get($font-weights, 'medium');
+  color: black(50);
+}

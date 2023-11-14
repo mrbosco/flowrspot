@@ -30,6 +30,8 @@
     "scss/percent-placeholder-pattern": "^[_a-z]+[_a-z0-9-]*$",
     "scss/at-mixin-argumentless-call-parentheses": "never",
     "scss/declaration-nested-properties": "never",
-    "scss/selector-no-redundant-nesting-selector": true
+    "scss/selector-no-redundant-nesting-selector": true,
+    "at-rule-no-unknown": null,
+    "length-zero-no-unit": null
   }
 }

@@ -1,0 +1,46 @@
+@import '../../styles/colors.scss';
+@import '../../styles/shadows.scss';
+
+.button {
+  background: linear-gradient(
+    270deg,
+    color('primary_light') 0%,
+    color('primary_faded') 100%
+  );
+  transition: background-color 0.3s;
+  border: none;
+  color: color('white');
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0.875rem; /* 100% */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    @include apply-shadow('button');
+  }
+}
+
+.big {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.regular {
+  width: 8.75rem;
+  height: 2.5rem;
+}
+
+.small {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.rounded {
+  border-radius: 3.125rem;
+}

@@ -1,0 +1,13 @@
+$spacing: (
+  'default': 1.25rem,
+  'xl': 7.5rem,
+  'l': 5rem,
+  'm': 3.125rem,
+  's': 1.875rem,
+  'xs': 1rem,
+  'xxs': 0.5rem,
+);
+
+@function spacing($size) {
+  @return map-get($spacing, $size);
+}
