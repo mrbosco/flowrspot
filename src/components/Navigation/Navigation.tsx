@@ -22,7 +22,7 @@ const Navigation = () => {
         </Link>
       </div>
       <div className={classNames(styles.navLinks, isMenuOpen && styles.opened)}>
-        <Link to="#">Flowers</Link>
+        <Link to="/flowers">Flowers</Link>
         <Link to="#">Latest Sightings</Link>
         <Link to="#">Favorites</Link>
         {isLoggedIn ? (

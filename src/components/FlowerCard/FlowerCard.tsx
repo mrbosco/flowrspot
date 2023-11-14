@@ -8,6 +8,7 @@ interface FlowerCardProps {
   name: string;
   latinName: string;
   sightings: number;
+  isFavorite?: boolean;
 }
 
 const FlowerCard: React.FC<FlowerCardProps> = ({
@@ -15,12 +16,13 @@ const FlowerCard: React.FC<FlowerCardProps> = ({
   name,
   latinName,
   sightings,
+  isFavorite = false,
 }) => {
   return (
     <div className={styles.card}>
       <img src={imageUrl} alt={name} className={styles.cardImage} />
       <div className={styles.cardOverlay}>
-        <Favorite isFavorite={false} className={styles.cardFavorite} />
+        <Favorite isFavorite={isFavorite} className={styles.cardFavorite} />
         <div className={styles.cardText}>
           <h3 className={styles.cardTitle}>{name}</h3>
           <p className={styles.cardSubtitle}>{latinName}</p>
