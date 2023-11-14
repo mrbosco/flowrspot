@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchFlowers } from '../services/apiFlowers';
+import { fetchFlowers } from '../../services/apiFlowers';
 
 const useFlowers = () => {
   const {

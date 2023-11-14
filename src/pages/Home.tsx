@@ -1,10 +1,10 @@
-import FlowerList from '../components/FlowerList/FlowerList';
+import FlowerList from '../features/FlowerList/FlowerList';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <FlowerList />
-    </div>
+    </>
   );
 };
 

@@ -20,13 +20,14 @@
   align-items: center;
   gap: spacing('m');
 
+  span {
+    color: color('primary');
+    font-weight: 500;
+  }
+
   a {
     color: #949ea0;
     text-decoration: none;
-
-    &.highlighted {
-      color: color('primary');
-    }
   }
 
   button {

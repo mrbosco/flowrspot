@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import Home from '../pages/Home';
 import AppLayout from '../components/AppLayout';
+import ModalManager from '../components/ModalManager';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,6 +16,7 @@ const queryClient = new QueryClient({
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
+      <ModalManager />
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
