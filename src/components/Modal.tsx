@@ -45,8 +45,8 @@ const Button = styled.button`
   transform: translateX(0.8rem);
   transition: all 0.2s;
   position: absolute;
-  top: 0rem;
-  right: 0.8rem;
+  top: 0.5rem;
+  right: 1.2rem;
 
   &:hover {
     background-color: #eee;
@@ -77,7 +77,7 @@ const Modal = ({ children, name }: ModalProps) => {
         <Button onClick={() => closeModal(name)}>
           <CloseIcon />
         </Button>
-        <div>{children}</div>
+        {children}
       </StyledModal>
     </Overlay>,
     document.body

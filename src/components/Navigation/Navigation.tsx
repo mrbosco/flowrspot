@@ -1,53 +1,39 @@
 /// <reference types="vite-plugin-svgr/client" />
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import useModalStore from '../../stores/useModalStore';
 
 import Logo from '../../assets/logo.svg?react';
 import HamburgerIcon from '../../assets/hamburger.svg';
 import CloseIcon from '../../assets/close-icon.svg';
-import Button from '../Button/Button';
+
+import AuthLinks from './AuthLinks';
+import useToggle from '../../hooks/useToggle';
 
 import styles from './Navigation.module.scss';
 
 const Navigation = () => {
-  const [isLoggedIn] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { openModal } = useModalStore();
+  const [isMenuOpen, toggleMenu] = useToggle(false);
 
   return (
     <>
       <nav className={styles.navigation}>
-        <div className="logo">
-          <Link to="/">
-            <Logo />
-          </Link>
-        </div>
+        <Link className="logo" to="/">
+          <Logo />
+        </Link>
         <div
-          className={classNames(styles.navLinks, isMenuOpen && styles.opened)}
+          className={classNames(styles.navLinks, {
+            [styles.opened]: isMenuOpen,
+          })}
         >
           <Link to="/flowers">Flowers</Link>
           <Link to="#">Latest Sightings</Link>
           <Link to="#">Favorites</Link>
-          {isLoggedIn ? (
-            <div className={styles.navProfile}>
-              <Link to="#">John Doe</Link>
-              <img src={'/avatars/menu_profile_holder.png'} />
-            </div>
-          ) : (
-            <>
-              <span onClick={() => openModal('login')}>Login</span>
-              <Button rounded={true} onClick={() => openModal('signup')}>
-                New Account
-              </Button>
-            </>
-          )}
+          <AuthLinks />
         </div>
         <img
           src={isMenuOpen ? CloseIcon : HamburgerIcon}
           className={styles.hamburgerIcon}
-          onClick={() => setIsMenuOpen((state) => !state)}
+          onClick={toggleMenu}
         />
       </nav>
     </>

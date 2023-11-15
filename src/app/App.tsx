@@ -1,5 +1,6 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'react-hot-toast';
 
 import Home from '../pages/Home';
 import AppLayout from '../components/AppLayout';
@@ -25,6 +26,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+      <Toaster position="top-center" gutter={12} />
     </QueryClientProvider>
   );
 };

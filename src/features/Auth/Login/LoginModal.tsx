@@ -1,7 +1,12 @@
 import Modal from '../../../components/Modal';
+import LoginForm from './LoginForm';
 
 const LoginModal = () => {
-  return <Modal name="login">Access Account</Modal>;
+  return (
+    <Modal name="login">
+      <LoginForm />
+    </Modal>
+  );
 };
 
 export default LoginModal;

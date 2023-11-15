@@ -10,6 +10,7 @@
   transition: background-color 0.3s;
   border: none;
   color: color('white');
+  width: 100%;
 
   font-size: 0.875rem;
   font-style: normal;
@@ -28,8 +29,9 @@
 }
 
 .big {
-  font-size: 1.25rem;
-  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  padding: 1.12rem;
+  border-radius: 0.1875rem;
 }
 
 .regular {
