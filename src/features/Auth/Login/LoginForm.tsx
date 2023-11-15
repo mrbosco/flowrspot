@@ -3,6 +3,11 @@ import FloatingLabelInput from '../../../components/Form/FloatingLabelInput';
 import FormRow from '../../../components/Form/FormRow';
 
 import styled from 'styled-components';
+import useLoginUser from './useLoginUser';
+import useModalStore from '../../../stores/useModalStore';
+import { LoginPayload } from '../../../types';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
 
 const FormContainer = styled.form`
   width: 100%;
@@ -18,18 +23,62 @@ const FormTitle = styled.h3`
 `;
 
 const LoginForm = () => {
+  const { login, isLoggingIn, isLoggedIn } = useLoginUser();
+  const { openModal } = useModalStore();
+
+  const { register, handleSubmit, formState } = useForm<LoginPayload>({
+    defaultValues: {},
+  });
+  const { errors } = formState;
+
+  const onSubmit = (data: LoginPayload) => {
+    login(data);
+  };
+
+  useEffect(() => {
+    isLoggedIn && openModal('loginSuccess');
+  }, [isLoggedIn, openModal]);
+
   return (
     <>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <FormTitle>Welcome Back</FormTitle>
         <FormRow>
-          <FloatingLabelInput id="email" label="Email Address" type="email" />
+          <FloatingLabelInput
+            id="email"
+            label="Email Address"
+            type="text"
+            {...register('email', {
+              required: 'Email is required',
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: 'Entered value does not match email format',
+              },
+            })}
+            disabled={isLoggingIn}
+            error={errors?.email?.message}
+          />
         </FormRow>
         <FormRow>
-          <FloatingLabelInput id="password" label="Password" type="password" />
+          <FloatingLabelInput
+            id="password"
+            label="Password"
+            type="password"
+            {...register('password', {
+              required: 'Password is required',
+              minLength: {
+                value: 8,
+                message: "Password can't be less than 8 characters",
+              },
+            })}
+            disabled={isLoggingIn}
+            error={errors?.password?.message}
+          />
         </FormRow>
         <FormRow>
-          <Button size="big">Login to your Account</Button>
+          <Button size="big" disabled={isLoggingIn}>
+            Login to your Account
+          </Button>
         </FormRow>
       </FormContainer>
     </>

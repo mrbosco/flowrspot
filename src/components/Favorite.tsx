@@ -3,7 +3,7 @@ import React from 'react';
 
 import FavoriteIcon from '../assets/favorite.svg?react';
 import FavoriteFilledIcon from '../assets/favorite-filled.svg?react';
-
+import { useAuthStore } from '../stores/useAuthStore';
 interface Props {
   isFavorite: boolean;
   onClick?: () => void;
@@ -16,6 +16,9 @@ const Favorite: React.FC<Props> = ({
   className,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
+  const isAuthenticated = useAuthStore((state) => state.isLoggedIn);
+
+  if (!isAuthenticated) return null;
 
   return (
     <div

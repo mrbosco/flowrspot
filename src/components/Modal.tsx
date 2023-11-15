@@ -1,5 +1,4 @@
 /// <reference types="vite-plugin-svgr/client" />
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createPortal } from 'react-dom';
 import { ReactNode } from 'react';
 import styled from 'styled-components';

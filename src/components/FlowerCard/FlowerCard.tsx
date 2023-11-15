@@ -22,7 +22,9 @@ const FlowerCard: React.FC<FlowerCardProps> = ({
     <div className={styles.card}>
       <img src={imageUrl} alt={name} className={styles.cardImage} />
       <div className={styles.cardOverlay}>
-        <Favorite isFavorite={isFavorite} className={styles.cardFavorite} />
+        <div className={styles.cardFavorite}>
+          <Favorite isFavorite={isFavorite} />
+        </div>
         <div className={styles.cardText}>
           <h3 className={styles.cardTitle}>{name}</h3>
           <p className={styles.cardSubtitle}>{latinName}</p>

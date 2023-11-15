@@ -25,3 +25,8 @@ export interface SignupPayload {
   password: string;
   date_of_birth: string;
 }
+
+export interface LoginPayload {
+  email: string;
+  password: string;
+}

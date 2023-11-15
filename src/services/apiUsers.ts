@@ -1,4 +1,4 @@
-import { AuthResponse, SignupPayload } from '../types';
+import { AuthResponse, LoginPayload, SignupPayload } from '../types';
 
 export const createUser = async (
   newUser: SignupPayload
@@ -10,6 +10,48 @@ export const createUser = async (
       body: JSON.stringify(newUser),
       headers: {
         'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  const data: AuthResponse = await response.json();
+
+  if (data?.error) {
+    throw new Error(data?.error);
+  }
+
+  return data;
+};
+
+export const loginUser = async (user: LoginPayload): Promise<AuthResponse> => {
+  const response = await fetch(
+    'https://flowrspot-api.herokuapp.com/api/v1/users/login',
+    {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  const data: AuthResponse = await response.json();
+
+  if (data?.error) {
+    throw new Error(data?.error);
+  }
+
+  return data;
+};
+
+export const refreshToken = async (token: string): Promise<AuthResponse> => {
+  const response = await fetch(
+    'https://flowrspot-api.herokuapp.com/api/v1/users/register',
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
       },
     }
   );

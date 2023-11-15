@@ -5,10 +5,11 @@ import useModalStore from '../../stores/useModalStore';
 import Button from '../Button/Button';
 
 import styles from './Navigation.module.scss';
+import { useAuthStore } from '../../stores/useAuthStore';
 
 const AuthLinks: React.FC = () => {
   const { openModal } = useModalStore();
-  const isAuthenticated = false;
+  const isAuthenticated = useAuthStore((state) => state.isLoggedIn);
 
   if (isAuthenticated) {
     return (
