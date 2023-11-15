@@ -53,25 +53,25 @@ export const loginUser = async (
   return { ...data, email: user.email };
 };
 
-export const refreshToken = async (token: string): Promise<AuthResponse> => {
+export const refreshToken = async (): Promise<void> => {
+  const oldToken = useAuthStore.getState().token;
   const response = await fetch(
     'https://flowrspot-api.herokuapp.com/api/v1/users/register',
     {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: token,
+        Authorization: `${oldToken}`,
       },
     }
   );
 
   const data: AuthResponse = await response.json();
+  useAuthStore.getState().refreshToken(data.auth_token);
 
   if (data?.error) {
     throw new Error(data?.error);
   }
-
-  return data;
 };
 
 export const getAuthenticatedUser = async (): Promise<AuthInfoPayload> => {

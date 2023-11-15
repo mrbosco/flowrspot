@@ -11,6 +11,7 @@ interface AuthState {
 
 interface AuthActions {
   loginUser: (token: string, email: string) => void;
+  refreshToken: (newToken: string) => void;
   logoutUser: () => void;
 }
 
@@ -26,6 +27,9 @@ export const useAuthStore = create<AuthState & AuthActions>()(
         },
         logoutUser: () => {
           set({ isLoggedIn: false, token: null });
+        },
+        refreshToken: (newToken) => {
+          set({ token: newToken });
         },
       }),
       {
