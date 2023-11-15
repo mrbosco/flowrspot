@@ -1,14 +1,4 @@
 $palette: (
-  'primary': #bc8cd2,
-  'primary_light': #d3b9df,
-  'primary_faded': #ece1f1,
-  'warning': #f4bd50,
-  'error': #f45050,
-  'white': #fff,
-  'url': '#0000EE',
-);
-
-$palette_legacy: (
   'primary': #df9186,
   'primary_light': #eaa79e,
   'primary_faded': #ecbcb3,
@@ -16,23 +6,18 @@ $palette_legacy: (
   'error': #f45050,
   'white': #fff,
   'url': '#0000EE',
-);
-
-$active-palette: $palette_legacy;
-
-$blacks: (
-  '100': #000,
-  '70': #4f4f4f,
-  '50': #828282,
-  '25': #bdbdbd,
-  '12': #e0e0e0,
-  '5': #f2f2f2,
+  'dark-blue': '#334144',
+  'black-100': #000,
+  'black-70': #4f4f4f,
+  'black-50': #828282,
+  'black-25': #bdbdbd,
+  'black-12': #e0e0e0,
+  'black-5': #f2f2f2,
+  'gray-50': #949ea0,
+  'gray-25': #dfe5ea,
+  'gray-10': #f5f6f7,
 );
 
 @function color($color-name) {
-  @return map-get($active-palette, $color-name);
-}
-
-@function black($percentage) {
-  @return map-get($blacks, $percentage);
+  @return map-get($palette, $color-name);
 }

@@ -13,9 +13,6 @@ const useCreateUser = () => {
     error,
   } = useMutation<AuthResponse, Error, SignupPayload>({
     mutationFn: (user: SignupPayload) => createUser(user),
-    onSuccess: () => {
-      toast.success('You are successfully registered');
-    },
     onError: (err) => toast.error(err.message),
   });
 

@@ -1,12 +1,14 @@
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { format, parseISO } from 'date-fns';
+import styled from 'styled-components';
+
 import Button from '../../../components/Button/Button';
 import FloatingLabelInput from '../../../components/Form/FloatingLabelInput';
 import FormRow from '../../../components/Form/FormRow';
 
-import styled from 'styled-components';
-import useCreateUser from './useCreateUser';
-import { useForm } from 'react-hook-form';
 import { SignupPayload } from '../../../types';
-import { useEffect } from 'react';
+import useCreateUser from './useCreateUser';
 import useModalStore from '../../../stores/useModalStore';
 
 const FormContainer = styled.form`
@@ -32,7 +34,10 @@ const SignUpForm = () => {
   const { errors } = formState;
 
   const onSubmit = (data: SignupPayload) => {
-    signupUser(data);
+    signupUser({
+      ...data,
+      date_of_birth: format(parseISO(data.date_of_birth), 'MMMM d, yyyy'),
+    });
   };
 
   useEffect(() => {
@@ -51,6 +56,7 @@ const SignUpForm = () => {
             {...register('first_name', {
               required: 'First name is required',
             })}
+            disabled={isCreating}
             error={errors?.first_name?.message}
           />
           <FloatingLabelInput
@@ -60,6 +66,7 @@ const SignUpForm = () => {
             {...register('last_name', {
               required: 'Last name is required',
             })}
+            disabled={isCreating}
             error={errors?.last_name?.message}
           />
         </FormRow>
@@ -67,10 +74,11 @@ const SignUpForm = () => {
           <FloatingLabelInput
             id="date_of_birth"
             label="Date of Birth"
-            type="text"
+            type="date"
             {...register('date_of_birth', {
               required: 'Date of birth is required',
             })}
+            disabled={isCreating}
             error={errors?.date_of_birth?.message}
           />
         </FormRow>
@@ -86,6 +94,7 @@ const SignUpForm = () => {
                 message: 'Entered value does not match email format',
               },
             })}
+            disabled={isCreating}
             error={errors?.email?.message}
           />
         </FormRow>
@@ -101,6 +110,7 @@ const SignUpForm = () => {
                 message: "Password can't be less than 8 characters",
               },
             })}
+            disabled={isCreating}
             error={errors?.password?.message}
           />
         </FormRow>

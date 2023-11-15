@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .floatingLabelContainer {
   position: relative;
   width: 100%;
@@ -6,12 +8,8 @@
     position: absolute;
     top: 1.2rem;
     left: 0.94rem;
-    color: #000;
     transition: 0.2s;
-    color: #949ea0;
-
-    font-family: Ubuntu;
-    font-style: normal;
+    color: color('gray-50');
     font-weight: 400;
     font-size: 0.8125rem;
   }
@@ -22,25 +20,25 @@
     border: none;
     padding: 0 0.94rem;
     padding-top: 0.69rem;
+    color: color('dark-blue');
     box-sizing: border-box;
-    color: #000;
     outline: 0;
     border-radius: 0.1875rem;
-    border: 1px solid #dfe5ea;
-    background: #f5f6f7;
-
-    color: #334144;
-
+    border: 1px solid color('gray-25');
+    background: color('gray-10');
     font-family: Ubuntu;
     font-size: 0.8125rem;
-    font-style: normal;
     font-weight: 400;
-    line-height: 0.8125rem; /* 100% */
 
     &:focus + label,
-    &:not(:placeholder-shown) + label {
+    &:not(:placeholder-shown) + label,
+    &:-webkit-autofill + label {
       top: 0.69rem;
       font-size: 0.625rem;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px color('gray-10') inset;
     }
   }
 }
