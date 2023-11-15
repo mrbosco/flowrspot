@@ -10,7 +10,7 @@ import CloseIcon from '../assets/close-icon.svg?react';
 
 const StyledModal = styled.div`
   position: fixed;
-  width: 27.5rem;
+  min-width: 27.5rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

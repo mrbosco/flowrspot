@@ -82,5 +82,5 @@ a {
 caption {
   font-size: map-get($font-sizes, 'caption');
   font-weight: map-get($font-weights, 'medium');
-  color: black(50);
+  color: color('black-50');
 }

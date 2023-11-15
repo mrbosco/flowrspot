@@ -9,14 +9,20 @@ const SuccessContainer = styled.div`
   gap: 1rem;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
 const SuccessTitle = styled.h3`
   color: #334144;
   text-align: center;
   margin-bottom: 0.88rem;
+  margin-top: 2rem;
 `;
 
 const LoginSuccessModal = () => {
-  const { openModal } = useModalStore();
+  const { openModal, closeModal } = useModalStore();
 
   return (
     <Modal name="loginSuccess">
@@ -24,9 +30,14 @@ const LoginSuccessModal = () => {
         <SuccessTitle>
           Congratulations! You have successfully logged into FlowrSpot!
         </SuccessTitle>
-        <Button size="big" onClick={() => openModal('login')}>
-          OK
-        </Button>
+        <ButtonContainer>
+          <Button size="big" onClick={() => closeModal('loginSuccess')}>
+            OK
+          </Button>
+          <Button size="big" onClick={() => openModal('user')}>
+            PROFILE
+          </Button>
+        </ButtonContainer>
       </SuccessContainer>
     </Modal>
   );

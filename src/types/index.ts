@@ -18,6 +18,10 @@ export interface AuthResponse {
   error?: string;
 }
 
+export interface CustomizedAuthResponse extends AuthResponse {
+  email: string;
+}
+
 export interface SignupPayload {
   first_name: string;
   last_name: string;
@@ -29,4 +33,9 @@ export interface SignupPayload {
 export interface LoginPayload {
   email: string;
   password: string;
+}
+
+export interface AuthInfoPayload {
+  user: User;
+  error?: string;
 }

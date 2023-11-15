@@ -1,4 +1,11 @@
-import { AuthResponse, LoginPayload, SignupPayload } from '../types';
+import { useAuthStore } from '../stores/useAuthStore';
+import {
+  AuthInfoPayload,
+  AuthResponse,
+  CustomizedAuthResponse,
+  LoginPayload,
+  SignupPayload,
+} from '../types';
 
 export const createUser = async (
   newUser: SignupPayload
@@ -23,7 +30,9 @@ export const createUser = async (
   return data;
 };
 
-export const loginUser = async (user: LoginPayload): Promise<AuthResponse> => {
+export const loginUser = async (
+  user: LoginPayload
+): Promise<CustomizedAuthResponse> => {
   const response = await fetch(
     'https://flowrspot-api.herokuapp.com/api/v1/users/login',
     {
@@ -35,13 +44,13 @@ export const loginUser = async (user: LoginPayload): Promise<AuthResponse> => {
     }
   );
 
-  const data: AuthResponse = await response.json();
+  const data: CustomizedAuthResponse = await response.json();
 
   if (data?.error) {
     throw new Error(data?.error);
   }
 
-  return data;
+  return { ...data, email: user.email };
 };
 
 export const refreshToken = async (token: string): Promise<AuthResponse> => {
@@ -57,6 +66,27 @@ export const refreshToken = async (token: string): Promise<AuthResponse> => {
   );
 
   const data: AuthResponse = await response.json();
+
+  if (data?.error) {
+    throw new Error(data?.error);
+  }
+
+  return data;
+};
+
+export const getAuthenticatedUser = async (): Promise<AuthInfoPayload> => {
+  const response = await fetch(
+    'https://flowrspot-api.herokuapp.com/api/v1/users/me',
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: useAuthStore.getState().token ?? '',
+      },
+    }
+  );
+
+  const data: AuthInfoPayload = await response.json();
 
   if (data?.error) {
     throw new Error(data?.error);
