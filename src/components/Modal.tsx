@@ -64,11 +64,8 @@ type ModalProps = {
 };
 
 const Modal = ({ children, name }: ModalProps) => {
-  const modals = useModalStore((state) => state.modals);
   const closeModal = useModalStore((state) => state.closeModal);
   const ref = useOutsideClick(() => closeModal(name));
-
-  if (!modals[name]) return null;
 
   return createPortal(
     <Overlay>

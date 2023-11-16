@@ -1,18 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchFlowers } from '../../services/apiFlowers';
-import { Flower } from '../../types';
+import { FlowerListResponse } from '../../types/api/responseTypes';
 
 const useFlowers = () => {
-  const {
-    data: flowers,
-    isLoading,
-    error,
-  } = useQuery<Flower[]>({
+  const { data, isLoading, error } = useQuery<FlowerListResponse>({
     queryKey: ['flowers'],
     queryFn: fetchFlowers,
   });
 
-  return { flowers, isLoading, error };
+  return { data, isLoading, error };
 };
 
 export default useFlowers;

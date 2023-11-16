@@ -1,9 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
-import { CustomizedAuthResponse, LoginPayload } from '../../../types';
-import { loginUser } from '../../../services/apiUsers';
-import { useAuthStore } from '../../../stores/useAuthStore';
+import { loginUser } from '../../services/apiUsers';
+import { useAuthStore } from '../../stores/useAuthStore';
+import { CustomizedAuthResponse } from '../../types/api/responseTypes';
+import { LoginPayload } from '../../types/api/payloadTypes';
 
 const useLoginUser = () => {
   const {

@@ -1,0 +1,21 @@
+@import 'colors';
+
+$border-radius-small: 0.1875rem;
+$border-radius-medium: 1.25rem;
+$border-radius-large: 3.125rem;
+
+$gradient-primary: linear-gradient(
+  270deg,
+  color('primary_light') 0%,
+  color('primary_faded') 100%
+);
+
+$spacing-default: 1.25rem;
+$spacing-xl: 7.5rem;
+$spacing-l: 5rem;
+$spacing-m: 3.125rem;
+$spacing-s: 1.875rem;
+$spacing-s2: 1.38rem;
+$spacing-xs: 1rem;
+$spacing-xs2: 0.8rem;
+$spacing-xxs: 0.5rem;

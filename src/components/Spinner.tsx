@@ -10,7 +10,6 @@ const Spinner = styled.div.attrs<{ 'data-testid': string }>({
   'data-testid': 'spinner',
 })`
   margin: 4.8rem auto;
-
   width: 6.4rem;
   aspect-ratio: 1;
   border-radius: 50%;

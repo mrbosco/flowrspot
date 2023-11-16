@@ -1,5 +1,5 @@
-import Modal from '../../../components/Modal';
-import LoginForm from './LoginForm';
+import Modal from '../../components/Modal';
+import LoginForm from '../../features/Auth/LoginForm';
 
 const LoginModal = () => {
   return (

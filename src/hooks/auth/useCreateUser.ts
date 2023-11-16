@@ -1,8 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
-import { AuthResponse, SignupPayload } from '../../../types';
-import { createUser } from '../../../services/apiUsers';
+import { createUser } from '../../services/apiUsers';
+import { SignupPayload } from '../../types/api/payloadTypes';
+import { AuthResponse } from '../../types/api/responseTypes';
 
 const useCreateUser = () => {
   const {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import useFlowers from './useFlowers';
-import FlowerCard from '../../components/FlowerCard/FlowerCard';
+import useFlowers from '../../hooks/flowers/useFlowers';
+import FlowerCard from '../../components/FlowerCard';
 import Spinner from '../../components/Spinner';
 
 const FlowerContainer = styled.div`
@@ -11,13 +11,13 @@ const FlowerContainer = styled.div`
 `;
 
 const FlowerList: React.FC = () => {
-  const { flowers, isLoading } = useFlowers();
+  const { data, isLoading } = useFlowers();
 
   if (isLoading) return <Spinner data-testid="spinner" />;
 
   return (
     <FlowerContainer>
-      {flowers?.map((flower) => (
+      {data?.flowers?.map((flower) => (
         <FlowerCard
           key={flower.id}
           name={flower.name}

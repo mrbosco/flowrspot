@@ -3,13 +3,14 @@ import { useForm } from 'react-hook-form';
 import { format, parseISO } from 'date-fns';
 import styled from 'styled-components';
 
-import Button from '../../../components/Button/Button';
-import FloatingLabelInput from '../../../components/Form/FloatingLabelInput';
-import FormRow from '../../../components/Form/FormRow';
+import Button from '../../components/Button';
+import FloatingLabelInput from '../../components/Form/FloatingLabelInput';
+import FormRow from '../../components/Form/FormRow';
 
-import { SignupPayload } from '../../../types';
-import useCreateUser from './useCreateUser';
-import useModalStore from '../../../stores/useModalStore';
+import useCreateUser from '../../hooks/auth/useCreateUser';
+import useModalStore from '../../stores/useModalStore';
+import { ButtonSizes } from '../../components/Button/types';
+import { SignupPayload } from '../../types/api/payloadTypes';
 
 const FormContainer = styled.form`
   width: 100%;
@@ -115,7 +116,7 @@ const SignUpForm = () => {
           />
         </FormRow>
         <FormRow>
-          <Button size="big" disabled={isCreating}>
+          <Button size={ButtonSizes.LARGE} disabled={isCreating}>
             Create Account
           </Button>
         </FormRow>

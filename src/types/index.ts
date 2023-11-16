@@ -13,29 +13,9 @@ export interface User {
   last_name: string;
 }
 
-export interface AuthResponse {
-  auth_token: string;
-  error?: string;
-}
-
-export interface CustomizedAuthResponse extends AuthResponse {
-  email: string;
-}
-
-export interface SignupPayload {
-  first_name: string;
-  last_name: string;
-  email: string;
-  password: string;
-  date_of_birth: string;
-}
-
-export interface LoginPayload {
-  email: string;
-  password: string;
-}
-
-export interface AuthInfoPayload {
-  user: User;
-  error?: string;
+export interface Pagination {
+  current_page: number;
+  next_page: number;
+  prev_page: number;
+  total_pages: number;
 }

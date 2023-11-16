@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import Modal from '../../../components/Modal';
-import Button from '../../../components/Button/Button';
-import useModalStore from '../../../stores/useModalStore';
+import Modal from '../../components/Modal';
+import Button from '../../components/Button';
+import useModalStore from '../../stores/useModalStore';
+import { ButtonSizes } from '../../components/Button/types';
 
 const SuccessContainer = styled.div`
   display: flex;
@@ -31,10 +32,13 @@ const LoginSuccessModal = () => {
           Congratulations! You have successfully logged into FlowrSpot!
         </SuccessTitle>
         <ButtonContainer>
-          <Button size="big" onClick={() => closeModal('loginSuccess')}>
+          <Button
+            size={ButtonSizes.LARGE}
+            onClick={() => closeModal('loginSuccess')}
+          >
             OK
           </Button>
-          <Button size="big" onClick={() => openModal('user')}>
+          <Button size={ButtonSizes.LARGE} onClick={() => openModal('user')}>
             PROFILE
           </Button>
         </ButtonContainer>

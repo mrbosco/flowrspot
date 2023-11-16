@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 import Modal from '../../components/Modal';
-import Button from '../../components/Button/Button';
+import Button from '../../components/Button';
 import { useAuthStore } from '../../stores/useAuthStore';
 import useModalStore from '../../stores/useModalStore';
-import useUserInfo from './useUserInfo';
+import useUserInfo from '../../hooks/auth/useUserInfo';
+import { ButtonSizes } from '../../components/Button/types';
 
 const ModalContainer = styled.div`
   display: flex;
@@ -97,7 +98,7 @@ const UserModal = () => {
           </ModalRow>
         </ModalBody>
         <Button
-          size="big"
+          size={ButtonSizes.LARGE}
           onClick={() => {
             logoutUser();
             closeAllModals();

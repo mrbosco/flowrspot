@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import useModalStore from '../../stores/useModalStore';
-import Button from '../Button/Button';
+import Button from '../Button';
+import styles from './styles.module.scss';
 
-import styles from './Navigation.module.scss';
-import { useAuthStore } from '../../stores/useAuthStore';
-import useUserInfo from '../../features/User/useUserInfo';
+import useModalStore from '../../stores/useModalStore';
+import { useIsLoggedIn } from '../../stores/useAuthStore';
+import useUserInfo from '../../hooks/auth/useUserInfo';
 
 const AuthLinks: React.FC = () => {
   const { openModal } = useModalStore();
-  const { isLoggedIn } = useAuthStore();
+  const isLoggedIn = useIsLoggedIn();
   const { user } = useUserInfo();
 
   if (isLoggedIn) {

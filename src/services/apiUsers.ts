@@ -1,11 +1,13 @@
 import { useAuthStore } from '../stores/useAuthStore';
 import {
   AuthInfoPayload,
-  AuthResponse,
-  CustomizedAuthResponse,
   LoginPayload,
   SignupPayload,
-} from '../types';
+} from '../types/api/payloadTypes';
+import {
+  AuthResponse,
+  CustomizedAuthResponse,
+} from '../types/api/responseTypes';
 
 export const createUser = async (
   newUser: SignupPayload

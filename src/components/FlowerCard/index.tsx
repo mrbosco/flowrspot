@@ -1,7 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import Button from '../Button/Button';
+import React from 'react';
+import Button from '../Button';
 import Favorite from '../Favorite';
-import styles from './FlowerCard.module.scss';
+import { ButtonSizes } from '../Button/types';
+import styles from './styles.module.scss';
+import { useIsLoggedIn } from '../../stores/useAuthStore';
 
 interface FlowerCardProps {
   imageUrl: string;
@@ -18,17 +20,19 @@ const FlowerCard: React.FC<FlowerCardProps> = ({
   sightings,
   isFavorite = false,
 }) => {
+  const isLoggedIn = useIsLoggedIn();
+
   return (
     <div className={styles.card}>
       <img src={imageUrl} alt={name} className={styles.cardImage} />
       <div className={styles.cardOverlay}>
         <div className={styles.cardFavorite}>
-          <Favorite isFavorite={isFavorite} />
+          {isLoggedIn && <Favorite isFavorite={isFavorite} />}
         </div>
         <div className={styles.cardText}>
           <h3 className={styles.cardTitle}>{name}</h3>
           <p className={styles.cardSubtitle}>{latinName}</p>
-          <Button className={styles.cardSightings} size="small">
+          <Button className={styles.cardSightings} size={ButtonSizes.SMALL}>
             {sightings} sightings
           </Button>
         </div>
@@ -37,4 +41,6 @@ const FlowerCard: React.FC<FlowerCardProps> = ({
   );
 };
 
-export default FlowerCard;
+const MemoizedFlowerCard = React.memo(FlowerCard);
+
+export default MemoizedFlowerCard;

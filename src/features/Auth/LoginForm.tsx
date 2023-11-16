@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 
-import Button from '../../../components/Button/Button';
-import FloatingLabelInput from '../../../components/Form/FloatingLabelInput';
-import FormRow from '../../../components/Form/FormRow';
+import Button from '../../components/Button';
+import FloatingLabelInput from '../../components/Form/FloatingLabelInput';
+import FormRow from '../../components/Form/FormRow';
 
-import useLoginUser from './useLoginUser';
-import useModalStore from '../../../stores/useModalStore';
-import { LoginPayload } from '../../../types';
+import useLoginUser from '../../hooks/auth/useLoginUser';
+import useModalStore from '../../stores/useModalStore';
+import { ButtonSizes } from '../../components/Button/types';
+import { LoginPayload } from '../../types/api/payloadTypes';
 
 const FormContainer = styled.form`
   width: 100%;
@@ -77,7 +78,7 @@ const LoginForm = () => {
           />
         </FormRow>
         <FormRow>
-          <Button size="big" disabled={isLoggingIn}>
+          <Button size={ButtonSizes.LARGE} disabled={isLoggingIn}>
             Login to your Account
           </Button>
         </FormRow>

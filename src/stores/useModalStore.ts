@@ -1,15 +1,6 @@
 import { create } from 'zustand';
 import { produce, Draft } from 'immer';
-
-interface ModalState {
-  modals: Record<string, boolean>;
-}
-
-interface ModalActions {
-  openModal: (name: string) => void;
-  closeModal: (name: string) => void;
-  closeAllModals: () => void;
-}
+import { ModalActions, ModalState } from '../types/storeTypes';
 
 const useModalStore = create<ModalState & ModalActions>((set) => ({
   modals: {},

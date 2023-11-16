@@ -1,6 +1,6 @@
-import { Flower } from '../types';
+import { FlowerListResponse } from '../types/api/responseTypes';
 
-export const fetchFlowers = async (): Promise<Flower[]> => {
+export const fetchFlowers = async (): Promise<FlowerListResponse> => {
   try {
     const response = await fetch(
       'https://flowrspot-api.herokuapp.com/api/v1/flowers'
@@ -10,11 +10,13 @@ export const fetchFlowers = async (): Promise<Flower[]> => {
       throw new Error('Network response was not ok');
     }
 
-    const data: Flower[] = (await response.json()).flowers;
+    const data = await response.json();
 
     return data;
   } catch (error) {
     console.error('Error fetching flowers:', error);
-    return [];
+    return {
+      flowers: [],
+    };
   }
 };

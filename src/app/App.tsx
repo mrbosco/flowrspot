@@ -4,12 +4,12 @@ import { Toaster } from 'react-hot-toast';
 
 import Home from '../pages/Home';
 import AppLayout from '../components/AppLayout';
-import ModalManager from '../components/ModalManager';
+import ModalManager from '../modals/ModalManager';
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 1,
+      staleTime: 1000 * 60 * 60,
     },
   },
 });

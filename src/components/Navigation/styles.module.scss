@@ -1,7 +1,7 @@
 @import '../../styles/shadows';
 @import '../../styles/colors';
-@import '../../styles/spacings';
 @import '../../styles/breakpoints';
+@import '../../styles/tokens';
 
 .navigation {
   display: flex;
@@ -9,7 +9,7 @@
   align-items: center;
   @include apply-shadow('default');
   background-color: white;
-  padding: 0 spacing('default');
+  padding: 0 $spacing-s;
   height: 5rem;
   font-family: Montserrat;
 }
@@ -18,7 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: spacing('m');
+  gap: $spacing-m;
 
   span {
     color: color('primary');
@@ -37,7 +37,7 @@
 
 .navProfile {
   display: flex;
-  gap: spacing('default');
+  gap: $spacing-default;
   align-items: center;
   justify-content: space-between;
 
@@ -60,11 +60,11 @@
     justify-content: center;
     align-items: flex-start;
     height: calc(100dvh - 5rem);
-    width: calc(100dvw - spacing('s') * 2);
+    width: calc(100dvw - $spacing-s * 2);
     background-color: color('white');
     bottom: 0;
     left: 0;
-    padding: 0 spacing('s');
+    padding: 0 $spacing-s;
   }
 
   .opened {

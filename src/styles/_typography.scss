@@ -16,6 +16,10 @@ $font-sizes: (
   'caption': 0.75rem,
 );
 
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
 $font-weights: (
   'light': 300,
   'regular': 400,
@@ -23,6 +27,10 @@ $font-weights: (
   'semi-bold': 600,
   'bold': 700,
 );
+
+@function font-weight($key) {
+  @return map-get($font-weights, $key);
+}
 
 .hero {
   font-size: map-get($font-sizes, 'hero');

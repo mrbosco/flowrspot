@@ -8,8 +8,9 @@ import CloseIcon from '../../assets/close-icon.svg';
 
 import AuthLinks from './AuthLinks';
 import useToggle from '../../hooks/useToggle';
+import { Routes } from './routes';
 
-import styles from './Navigation.module.scss';
+import styles from './styles.module.scss';
 
 const Navigation = () => {
   const [isMenuOpen, toggleMenu] = useToggle(false);
@@ -17,7 +18,7 @@ const Navigation = () => {
   return (
     <>
       <nav className={styles.navigation}>
-        <Link className="logo" to="/">
+        <Link className="logo" to={Routes.HOME}>
           <Logo />
         </Link>
         <div
@@ -25,9 +26,9 @@ const Navigation = () => {
             [styles.opened]: isMenuOpen,
           })}
         >
-          <Link to="/flowers">Flowers</Link>
-          <Link to="#">Latest Sightings</Link>
-          <Link to="#">Favorites</Link>
+          <Link to={Routes.FLOWERS}>Flowers</Link>
+          <Link to={Routes.UNDEFINED}>Latest Sightings</Link>
+          <Link to={Routes.UNDEFINED}>Favorites</Link>
           <AuthLinks />
         </div>
         <img

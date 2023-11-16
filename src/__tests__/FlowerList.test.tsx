@@ -5,8 +5,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query';
-
-import FlowerList from '../features/FlowerList/FlowerList';
+import { FlowerList } from '../features';
 
 jest.mock('@tanstack/react-query', () => ({
   ...jest.requireActual('@tanstack/react-query'),
@@ -44,7 +43,9 @@ describe('FlowerList', () => {
 
   it('renders flowers correctly', async () => {
     (useQuery as jest.Mock).mockReturnValue({
-      data: mockFlowers,
+      data: {
+        flowers: mockFlowers,
+      },
       isLoading: false,
       error: null,
     });
