@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { getAuthenticatedUser } from '../services/apiUsers';
 
 interface AuthState {
   isLoggedIn: boolean;
@@ -26,7 +25,7 @@ export const useAuthStore = create<AuthState & AuthActions>()(
           set({ token, email, isLoggedIn: true });
         },
         logoutUser: () => {
-          set({ isLoggedIn: false, token: null });
+          get().isLoggedIn && set({ isLoggedIn: false });
         },
         refreshToken: (newToken) => {
           set({ token: newToken });

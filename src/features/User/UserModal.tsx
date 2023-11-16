@@ -4,7 +4,6 @@ import Modal from '../../components/Modal';
 import Button from '../../components/Button/Button';
 import { useAuthStore } from '../../stores/useAuthStore';
 import useModalStore from '../../stores/useModalStore';
-import Spinner from '../../components/Spinner';
 import useUserInfo from './useUserInfo';
 
 const ModalContainer = styled.div`
@@ -63,11 +62,9 @@ const UserValue = styled.span`
 `;
 
 const UserModal = () => {
-  const { user, isLoading } = useUserInfo();
+  const { user } = useUserInfo();
   const { closeAllModals } = useModalStore();
   const { email, logoutUser } = useAuthStore();
-
-  if (isLoading) return <Spinner />;
 
   return (
     <Modal name="user">

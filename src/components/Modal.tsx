@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-import useModalStore from '../stores/useModalStore.js';
+import useModalStore from '../stores/useModalStore';
 import useOutsideClick from '../hooks/useOutsideClick';
 
 import CloseIcon from '../assets/close-icon.svg?react';

@@ -1,13 +1,14 @@
+import { useEffect } from 'react';
+import styled from 'styled-components';
+import { useForm } from 'react-hook-form';
+
 import Button from '../../../components/Button/Button';
 import FloatingLabelInput from '../../../components/Form/FloatingLabelInput';
 import FormRow from '../../../components/Form/FormRow';
 
-import styled from 'styled-components';
 import useLoginUser from './useLoginUser';
 import useModalStore from '../../../stores/useModalStore';
 import { LoginPayload } from '../../../types';
-import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
 
 const FormContainer = styled.form`
   width: 100%;

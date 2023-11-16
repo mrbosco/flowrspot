@@ -13,7 +13,7 @@ const FlowerContainer = styled.div`
 const FlowerList: React.FC = () => {
   const { flowers, isLoading } = useFlowers();
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner data-testid="spinner" />;
 
   return (
     <FlowerContainer>
