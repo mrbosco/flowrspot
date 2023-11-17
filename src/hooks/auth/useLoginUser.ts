@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
 import { loginUser } from '../../services/apiUsers';
@@ -7,6 +7,8 @@ import { CustomizedAuthResponse } from '../../types/api/responseTypes';
 import { LoginPayload } from '../../types/api/payloadTypes';
 
 const useLoginUser = () => {
+  const queryClient = useQueryClient();
+
   const {
     mutate: login,
     isPending: isLoggingIn,
@@ -18,6 +20,9 @@ const useLoginUser = () => {
     onError: (err) => toast.error(err.message),
     onSuccess: (data) => {
       useAuthStore.getState().loginUser(data.auth_token, data.email);
+      queryClient.invalidateQueries({
+        queryKey: ['user'],
+      });
     },
   });
 
