@@ -15,6 +15,8 @@ Before running the project, ensure you have the following installed on your syst
 - Node.js (14.x or higher)
 - npm (7.x or higher)
 
+You can check your Node.js and npm versions with `node -v` and `npm -v` commands, respectively.
+
 ### Installation
 
 1. **Clone the Repository**
@@ -82,45 +84,65 @@ npm run lint
 
 This will check for any linting errors across `.ts` and `.tsx` files.
 
+## Testing
+
+- Run `npm run test` to execute tests using Jest.
+- Test files are located in the `__tests__` directory.
+
+## Husky Configuration and Process
+
+Husky is a tool used to manage Git hooks in your project. It ensures that certain quality checks and standards are met before code is committed or pushed to the repository. This helps in maintaining code quality and consistency across the project.
+
+### Configuration:
+
+- Husky is configured in your project via the `.husky/` directory, which contains the hook scripts.
+- The `prepare` script in `package.json` is used to set up Husky when you run `npm install`.
+
+### Process:
+
+- When you try to commit your changes, Husky triggers pre-commit hooks defined in the project. These hooks can run linters, formatters, or any other scripts as configured.
+- If these scripts pass, the commit is successful. If they fail, the commit is aborted, and you need to fix the issues before proceeding.
+- Commonly used hooks are `pre-commit` for running lint checks and `pre-push` for running tests.
+
+To use Husky effectively, ensure that you have it installed and configured correctly. The hooks will help maintain code quality and prevent problematic code from entering your codebase.
+
 ## Project Structure
 
 The FlowrSpot project is organized into several key directories for efficient development and easy maintenance:
 
 ```
-flowrspot-web/
-├── src/
-│   ├── components/        # Shared components
-│   │   ├── Button/
-│   │   ├── Modal/
-│   │   ├── Navbar/
-│   │   └── ...
-│   ├── features/          # Feature-specific components
-│   │   ├── Auth/          # Authentication related components
-│   │   │   ├── Login/
-│   │   │   ├── Signup/
-│   │   │   └── Profile/
-│   │   ├── FlowersList/   # Component to list flowers
-│   │   └── ...
-│   ├── hooks/             # Custom hooks
-│   ├── pages/             # Page components
-│   │   ├── Home/
-│   │   ├── About/
-│   │   └── ...
-│   ├── utils/             # Utility functions
-│   ├── app/               # Root component and setup
-│   │   ├── App.tsx
-│   │   └── ...
-│   ├── styles/            # Global and shared styles
-│   ├── types/             # TypeScript types and interfaces
-│   └── main.tsx           # Entry point
-├── public/                # Public assets
-├── tests/                 # Test files
-├── .eslintrc.js           # ESLint configuration
-├── .prettierrc            # Prettier configuration
-├── vite.config.ts         # Vite configuration
-├── tsconfig.json          # TypeScript configuration
-├── package.json
-└── README.md
+.
+├── .gitignore                # Git ignore file
+├── index.html                # Entry HTML file
+├── jest.config.ts            # Configuration for Jest testing framework
+├── package.json              # Project metadata and dependency list
+├── README.md                 # Project overview and documentation
+├── tsconfig.json             # TypeScript configuration
+├── tsconfig.node.json        # TypeScript configuration for Node.js
+├── vite.config.ts            # Vite configuration for build and development
+├── package-lock.json         # Locked versions of npm dependencies
+├── public/                   # Public assets like images and favicons
+│   ├── avatars/              # Avatar images
+│   └── favicon.svg           # Favicon file
+└── src/                      # Source files
+    ├── __mocks__/            # Mock files for Jest tests
+    ├── app/                  # App-level components and setup
+    ├── assets/               # Static assets like images and icons
+    ├── components/           # Reusable UI components
+    │   ├── Button/
+    │   ├── Modal/
+    │   └── Navigation/
+    ├── features/             # Feature-specific components
+    ├── hooks/                # Custom React hooks
+    ├── modals/               # Modal components for the application
+    ├── pages/                # Components representing pages
+    ├── services/             # Service functions for API calls and data management
+    ├── stores/               # State management using stores
+    ├── styles/               # Global styles and styling utilities
+    ├── __tests__/            # Test files for unit and integration tests
+    ├── main.tsx              # Entry point for React components
+    ├── setupTests.ts         # Setup file for Jest tests
+    └── vite-env.d.ts         # TypeScript declarations for Vite environment variables
 ```
 
 This structure helps in organizing the code into logical segments, making it easier to manage and understand.
