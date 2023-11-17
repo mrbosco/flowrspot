@@ -11,6 +11,7 @@ import useCreateUser from '../../hooks/auth/useCreateUser';
 import useModalStore from '../../stores/useModalStore';
 import { ButtonSizes } from '../../components/Button/types';
 import { SignupPayload } from '../../types/api/payloadTypes';
+import { validateDateOfBirth } from '../../utils/validateDateOfBirth';
 
 const FormContainer = styled.form`
   width: 100%;
@@ -78,6 +79,7 @@ const SignUpForm = () => {
             type="date"
             {...register('date_of_birth', {
               required: 'Date of birth is required',
+              validate: validateDateOfBirth,
             })}
             disabled={isCreating}
             error={errors?.date_of_birth?.message}
