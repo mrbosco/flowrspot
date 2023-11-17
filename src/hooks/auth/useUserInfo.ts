@@ -1,6 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { User } from '../../types';
-import { getAuthenticatedUser, refreshToken } from '../../services/apiUsers';
+import {
+  getAuthenticatedUser,
+  getUserSightings,
+  refreshToken,
+} from '../../services/apiUsers';
 
 const useUserInfo = () => {
   const {
@@ -12,7 +16,8 @@ const useUserInfo = () => {
     queryFn: async () => {
       const { user } = await getAuthenticatedUser();
       const { id, first_name, last_name } = user;
-      return { id, first_name, last_name };
+      const { sightings } = await getUserSightings({ id });
+      return { id, first_name, last_name, sightings };
     },
     retry: (failureCount, error) => {
       if (error && failureCount < 2) {

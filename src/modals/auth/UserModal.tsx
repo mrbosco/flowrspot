@@ -76,7 +76,7 @@ const UserModal = () => {
             <UserTitle>
               {user?.first_name} {user?.last_name}
             </UserTitle>
-            <UserSightings>47 sightings</UserSightings>
+            <UserSightings>{user?.sightings.length} sightings</UserSightings>
           </div>
         </ModalHeader>
         <ModalBody>

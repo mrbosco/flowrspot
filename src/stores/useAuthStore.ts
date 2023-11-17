@@ -5,6 +5,7 @@ import { AuthState } from '../types/storeTypes';
 export const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
+      id: 0,
       isLoggedIn: false,
       token: null,
       email: '',
@@ -12,7 +13,7 @@ export const useAuthStore = create<AuthState>()(
         set({ token, email, isLoggedIn: true });
       },
       logoutUser: () => {
-        get().isLoggedIn && set({ isLoggedIn: false });
+        get().isLoggedIn && set({ token: null, email: '', isLoggedIn: false });
       },
       refreshToken: (newToken) => {
         set({ token: newToken });

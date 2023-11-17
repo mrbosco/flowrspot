@@ -5,6 +5,7 @@ export interface AuthActions {
 }
 
 export interface AuthState extends AuthActions {
+  id: number;
   isLoggedIn: boolean;
   token: string | null;
   email: string;

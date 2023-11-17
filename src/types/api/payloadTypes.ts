@@ -1,5 +1,3 @@
-import { User } from '..';
-
 export interface SignupPayload {
   first_name: string;
   last_name: string;
@@ -13,7 +11,6 @@ export interface LoginPayload {
   password: string;
 }
 
-export interface AuthInfoPayload {
-  user: User;
-  error?: string;
+export interface UserSightingsPayload {
+  id: number;
 }

@@ -11,6 +11,7 @@ export interface User {
   id: number;
   first_name: string;
   last_name: string;
+  sightings: Sighting[];
 }
 
 export interface Pagination {
@@ -18,4 +19,13 @@ export interface Pagination {
   next_page: number;
   prev_page: number;
   total_pages: number;
+}
+
+export interface Sighting {
+  id: number;
+  flower_id: number;
+  name: string;
+  description: string;
+  latitude: number;
+  longitude: number;
 }

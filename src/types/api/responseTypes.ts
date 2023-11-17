@@ -1,4 +1,4 @@
-import { Flower, Pagination } from '..';
+import { Flower, Pagination, User, Sighting } from '..';
 
 export interface AuthResponse {
   auth_token: string;
@@ -12,4 +12,16 @@ export interface CustomizedAuthResponse extends AuthResponse {
 export interface FlowerListResponse {
   flowers: Flower[];
   meta?: Pagination;
+  error?: string;
+}
+
+export interface AuthInfoResponse {
+  user: User;
+  error?: string;
+}
+
+export interface UserSightingsResponse {
+  sightings: Sighting[];
+  meta?: Pagination;
+  error?: string;
 }
