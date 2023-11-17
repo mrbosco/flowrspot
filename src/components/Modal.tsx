@@ -10,19 +10,24 @@ import CloseIcon from '../assets/close-icon.svg?react';
 
 const StyledModal = styled.div`
   position: fixed;
-  min-width: 27.5rem;
+  min-width: ${(props) => props.theme.minimumModalSize};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 3px;
+  border-radius: ${(props) => props.theme.borderRadiusSmall};
   background: #fff;
   box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.05);
-  padding: 1.87rem;
+  padding: ${(props) => props.theme.spacingS};
   transition: all 0.5s;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+    min-width: unset;
+    width: 95%;
+  }
 `;
 
 const Overlay = styled.div`

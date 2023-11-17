@@ -1,15 +1,20 @@
-@import '../../styles/colors';
-@import '../../styles/tokens';
+@import '../../styles/all-variables';
 
 .card {
   position: relative;
-  width: 100%;
   height: 21.87rem;
-  border-radius: 0.1875rem;
-  overflow: hidden;
+  border-radius: $border-radius-small;
 
   :hover {
     cursor: pointer;
+  }
+
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-desktop) {
+    height: 18.125rem;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    height: 14.375rem;
   }
 }
 
@@ -17,7 +22,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .cardOverlay {
@@ -26,16 +30,11 @@
   align-items: center;
   justify-content: space-between;
   position: absolute;
+  width: 100%;
   height: 100%;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 0;
   padding: $spacing-default;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.7) 89.5%
-  );
+  background: $gradient-black;
 }
 
 .cardFavorite {
@@ -47,31 +46,27 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  color: color('white');
-  gap: 0.44rem;
+  color: $color-white;
+  gap: $spacing-xxs;
+  text-align: center;
 }
 
 .cardTitle {
-  color: color('white');
-  text-align: center;
-  font-family: Ubuntu;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
+  color: $color-white;
+  font-size: $card-title-size;
+  font-weight: $regular-weight;
 }
 
 .cardSubtitle {
-  color: #fff;
+  color: $color-white;
   text-align: center;
-  font-family: Ubuntu;
-  font-size: 0.75rem;
+  font-size: $paragraph-small-size;
   font-style: italic;
-  font-weight: 400;
-  line-height: 0.75rem; /* 100% */
+  font-weight: $regular-weight;
   opacity: 0.7;
 }
 
 .cardSightings {
-  font-size: 0.875rem;
+  font-size: $default-size;
   margin-top: $spacing-default;
 }

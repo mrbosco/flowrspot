@@ -17,7 +17,10 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={styles.navigation}>
+      <nav
+        className={styles.navigation}
+        onClick={() => isMenuOpen && toggleMenu()}
+      >
         <Link className="logo" to={Routes.HOME}>
           <Logo />
         </Link>
@@ -27,8 +30,8 @@ const Navigation = () => {
           })}
         >
           <Link to={Routes.FLOWERS}>Flowers</Link>
-          <Link to={Routes.UNDEFINED}>Latest Sightings</Link>
-          <Link to={Routes.UNDEFINED}>Favorites</Link>
+          <Link to={Routes.LATEST_SIGHTINGS}>Latest Sightings</Link>
+          <Link to={Routes.FAVORITES}>Favorites</Link>
           <AuthLinks />
         </div>
         <img

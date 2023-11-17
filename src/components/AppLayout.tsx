@@ -6,16 +6,16 @@ import Navigation from './Navigation';
 const StyledAppLayout = styled.div``;
 
 const Main = styled.main`
-  max-width: 1220px;
+  max-width: ${(props) => props.theme.breakpointDesktop};
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: ${(props) => props.theme.spacingDefault};
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  gap: 1.5rem;
+  gap: ${(props) => props.theme.spacingDefault};
 `;
 
 const AppLayout: React.FC = () => {

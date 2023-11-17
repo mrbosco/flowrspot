@@ -1,13 +1,21 @@
 @import 'colors';
 
+$maximum-desktop-size: 1220px;
+$minimum-modal-size: 27.5rem;
+
 $border-radius-small: 0.1875rem;
 $border-radius-medium: 1.25rem;
 $border-radius-large: 3.125rem;
 
 $gradient-primary: linear-gradient(
   270deg,
-  color('primary_light') 0%,
-  color('primary_faded') 100%
+  $color-primary-light 0%,
+  $color-primary-faded 100%
+);
+$gradient-black: linear-gradient(
+  180deg,
+  rgba(0, 0, 0, 0%) 0%,
+  rgba(0, 0, 0, 70%) 89.5%
 );
 
 $spacing-default: 1.25rem;
@@ -19,3 +27,22 @@ $spacing-s2: 1.38rem;
 $spacing-xs: 1rem;
 $spacing-xs2: 0.8rem;
 $spacing-xxs: 0.5rem;
+
+:export {
+  maximumDesktopSize: $maximum-desktop-size;
+  minimumModalSize: $minimum-modal-size;
+  borderRadiusSmall: $border-radius-small;
+  borderRadiusMedium: $border-radius-medium;
+  borderRadiusLarge: $border-radius-large;
+  gradientPrimary: $gradient-primary;
+  gradientBlack: $gradient-black;
+  spacingDefault: $spacing-default;
+  spacingXl: $spacing-xl;
+  spacingL: $spacing-l;
+  spacingM: $spacing-m;
+  spacingS: $spacing-s;
+  spacingS2: $spacing-s2;
+  spacingXs: $spacing-xs;
+  spacingXs2: $spacing-xs2;
+  spacingXxs: $spacing-xxs;
+}

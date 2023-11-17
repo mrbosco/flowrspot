@@ -14,8 +14,16 @@ const Spinner = styled.div.attrs<{ 'data-testid': string }>({
   aspect-ratio: 1;
   border-radius: 50%;
   background:
-    radial-gradient(farthest-side, #df9186 94%, #0000) top/10px 10px no-repeat,
-    conic-gradient(#0000 30%, #df9186);
+    radial-gradient(
+        farthest-side,
+        ${(props) => props.theme.colorPrimary} 94%,
+        ${(props) => props.theme.colorBlack100}
+      )
+      top/10px 10px no-repeat,
+    conic-gradient(
+      ${(props) => props.theme.colorBlack100} 30%,
+      ${(props) => props.theme.colorPrimary}
+    );
   animation: ${rotate} 1.5s infinite linear;
 `;
 

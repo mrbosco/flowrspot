@@ -12,16 +12,17 @@ button {
   border-radius: $border-radius-small;
 
   background: $gradient-primary;
-  color: color('white');
+  color: $color-white;
 
   font-family: Ubuntu;
-  font-size: font-size('default');
-  font-weight: font-weight('medium');
+  font-size: $default-size;
+  font-weight: $medium-weight;
 
   transition: background-color 0.3s;
 
   &:hover {
     cursor: pointer;
+
     @include apply-shadow('button');
   }
 }
@@ -36,9 +37,9 @@ button.small {
   padding: $spacing-xxs $spacing-xs;
   border-radius: $border-radius-medium;
 
-  font-size: font-size('button');
-  font-weight: font-weight('regular');
-  background: rgba(0, 0, 0, 0.5);
+  font-size: $button-size;
+  font-weight: $regular-weight;
+  background: rgba(0, 0, 0, 50%);
 
   &:hover {
     @include apply-shadow('button');

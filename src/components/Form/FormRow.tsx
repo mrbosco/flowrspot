@@ -3,11 +3,14 @@ import styled from 'styled-components';
 const StyledFormRow = styled.div`
   align-items: flex-start;
   display: flex;
-  gap: 0.63rem;
+  gap: ${(props) => props.theme.spacingXxs};
   width: 100%;
 
   &:has(button) {
-    margin-top: calc(1.25rem - 0.63rem);
+    margin-top: calc(
+      ${(props) => props.theme.spacingDefault} -
+        ${(props) => props.theme.spacingXxs}
+    );
   }
 `;
 

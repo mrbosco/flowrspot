@@ -1,23 +1,37 @@
-$palette: (
-  'primary': #df9186,
-  'primary_light': #eaa79e,
-  'primary_faded': #ecbcb3,
-  'warning': #f4bd50,
-  'error': #f45050,
-  'white': #fff,
-  'url': '#0000EE',
-  'dark-blue': '#334144',
-  'black-100': #000,
-  'black-70': #4f4f4f,
-  'black-50': #828282,
-  'black-25': #bdbdbd,
-  'black-12': #e0e0e0,
-  'black-5': #f2f2f2,
-  'gray-50': #949ea0,
-  'gray-25': #dfe5ea,
-  'gray-10': #f5f6f7,
-);
+$color-primary: #df9186;
+$color-primary-light: #eaa79e;
+$color-primary-faded: #ecbcb3;
+$color-warning: #f4bd50;
+$color-error: #f45050;
+$color-white: #fff;
+$color-url: '#0000EE';
+$color-dark-blue: '#334144';
+$color-black-100: #000;
+$color-black-70: #4f4f4f;
+$color-black-50: #828282;
+$color-black-25: #bdbdbd;
+$color-black-12: #e0e0e0;
+$color-black-5: #f2f2f2;
+$color-gray-50: #949ea0;
+$color-gray-25: #dfe5ea;
+$color-gray-10: #f5f6f7;
 
-@function color($color-name) {
-  @return map-get($palette, $color-name);
+:export {
+  colorPrimary: $color-primary;
+  colorPrimaryLight: $color-primary-light;
+  colorPrimaryFaded: $color-primary-faded;
+  colorWarning: $color-warning;
+  colorError: $color-error;
+  colorWhite: $color-white;
+  colorUrl: $color-url;
+  colorDarkBlue: $color-dark-blue;
+  colorBlack100: $color-black-100;
+  colorBlack70: $color-black-70;
+  colorBlack50: $color-black-50;
+  colorBlack25: $color-black-25;
+  colorBlack12: $color-black-12;
+  colorBlack5: $color-black-5;
+  colorGray50: $color-gray-50;
+  colorGray25: $color-gray-25;
+  colorGray10: $color-gray-10;
 }

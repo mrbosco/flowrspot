@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
-import styles from './FloatingLabelInput.module.scss';
 import styled from 'styled-components';
+import styles from './FloatingLabelInput.module.scss';
 
 const Error = styled.span`
-  color: #df9186;
+  color: ${(props) => props.theme.colorPrimary};
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 0.6rem;
+  letter-spacing: ${(props) => props.theme.spacingXxs};
+  font-size: ${(props) => props.theme.labelSize};
 `;
 
 interface FloatingLabelInputProps
