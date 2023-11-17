@@ -1,9 +1,10 @@
 import React from 'react';
-import Button from '../Button';
-import Favorite from '../Favorite';
-import { ButtonSizes } from '../Button/types';
+
+import Button from '../../../components/Button';
+import Favorite from '../../../components/Favorite';
+import { ButtonSizes } from '../../../components/Button/types';
 import styles from './styles.module.scss';
-import { useIsLoggedIn } from '../../stores/useAuthStore';
+import { useIsLoggedIn } from '../../../stores/useAuthStore';
 
 interface FlowerCardProps {
   imageUrl: string;

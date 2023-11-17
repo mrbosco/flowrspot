@@ -1,6 +1,7 @@
 @import 'colors';
 
 $maximum-desktop-size: 1220px;
+$maximum-desktop-size-4k: 1920px;
 $minimum-modal-size: 27.5rem;
 
 $border-radius-small: 0.1875rem;
@@ -31,6 +32,7 @@ $spacing-xxxs: 0.1rem;
 
 :export {
   maximumDesktopSize: $maximum-desktop-size;
+  maximumDesktopSize4k: $maximum-desktop-size-4k;
   minimumModalSize: $minimum-modal-size;
   borderRadiusSmall: $border-radius-small;
   borderRadiusMedium: $border-radius-medium;

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import useModalStore from '../stores/useModalStore';
 import useOutsideClick from '../hooks/useOutsideClick';
 
-import CloseIcon from '../assets/close-icon.svg?react';
+import CloseIcon from '../assets/icons/close-icon.svg?react';
 
 const StyledModal = styled.div`
   ${({ theme }) => {
@@ -20,7 +20,7 @@ const StyledModal = styled.div`
     } = theme;
     return `
       position: fixed;
-      min-width: ${minimumModalSize};
+      width: ${minimumModalSize};
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

@@ -1,8 +1,8 @@
 /// <reference types="vite-plugin-svgr/client" />
 import React from 'react';
 
-import FavoriteIcon from '../assets/favorite.svg?react';
-import FavoriteFilledIcon from '../assets/favorite-filled.svg?react';
+import FavoriteIcon from '../assets/icons/favorite.svg?react';
+import FavoriteFilledIcon from '../assets/icons/favorite-filled.svg?react';
 
 interface Props {
   isFavorite: boolean;

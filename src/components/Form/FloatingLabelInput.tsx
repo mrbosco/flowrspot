@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import styles from './FloatingLabelInput.module.scss';
 
 const Error = styled.span`
-  color: ${(props) => props.theme.colorPrimary};
+  color: ${(props) => props.theme.colorPrimaryFaded};
   text-transform: uppercase;
-  letter-spacing: ${(props) => props.theme.spacingXxs};
   font-size: ${(props) => props.theme.labelSize};
 `;
 

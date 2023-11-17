@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import useFlowers from '../../hooks/flowers/useFlowers';
-import FlowerCard from '../../components/FlowerCard';
-import Spinner from '../../components/Spinner';
+import useFlowers from '../../../hooks/flowers/useFlowers';
+import FlowerCard from '../FlowerCard';
+import Spinner from '../../../components/Spinner';
 
 const FlowerContainer = styled.div`
   display: grid;

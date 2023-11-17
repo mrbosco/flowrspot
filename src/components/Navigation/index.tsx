@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import Logo from '../../assets/logo.svg?react';
-import HamburgerIcon from '../../assets/hamburger.svg';
-import CloseIcon from '../../assets/close-icon.svg';
+import HamburgerIcon from '../../assets/icons/hamburger.svg';
+import CloseIcon from '../../assets/icons/close-icon.svg';
 
 import AuthLinks from './AuthLinks';
 import useToggle from '../../hooks/useToggle';
@@ -37,7 +37,7 @@ const Navigation = () => {
         <img
           src={isMenuOpen ? CloseIcon : HamburgerIcon}
           className={styles.hamburgerIcon}
-          onClick={toggleMenu}
+          onClick={() => !isMenuOpen && toggleMenu()}
         />
       </nav>
     </>
