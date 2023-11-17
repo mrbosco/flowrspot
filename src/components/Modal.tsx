@@ -9,27 +9,38 @@ import useOutsideClick from '../hooks/useOutsideClick';
 import CloseIcon from '../assets/close-icon.svg?react';
 
 const StyledModal = styled.div`
-  position: fixed;
-  min-width: ${(props) => props.theme.minimumModalSize};
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: ${(props) => props.theme.borderRadiusSmall};
-  background: #fff;
-  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.05);
-  padding: ${(props) => props.theme.spacingS};
-  transition: all 0.5s;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${({ theme }) => {
+    const {
+      minimumModalSize,
+      borderRadiusSmall,
+      spacingS,
+      breakpointTablet,
+      colorWhite,
+      modalShadow,
+    } = theme;
+    return `
+      position: fixed;
+      min-width: ${minimumModalSize};
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: ${borderRadiusSmall};
+      background: ${colorWhite};
+      box-shadow: ${modalShadow};
+      padding: ${spacingS};
+      transition: all 0.5s;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
-    min-width: unset;
-    width: 95%;
-  }
+      @media screen and (max-width: ${breakpointTablet}) {
+        min-width: unset;
+        width: 95%;
+      }
+    `;
+  }}
 `;
-
 const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -41,26 +52,38 @@ const Overlay = styled.div`
   transition: all 0.5s;
 `;
 
-const Button = styled.button`
-  background: none;
-  border: none;
-  padding: 0.1rem;
-  border-radius: 5px;
-  transform: translateX(0.8rem);
-  transition: all 0.2s;
-  position: absolute;
-  top: 0.5rem;
-  right: 1.2rem;
+const CloseButton = styled.button`
+  ${({ theme }) => {
+    const {
+      spacingXxxs,
+      borderRadiusSmall,
+      spacingXxs,
+      spacingDefault,
+      colorGray25,
+      spacingS,
+    } = theme;
+    return `
+      background: none;
+      border: none;
+      padding: ${spacingXxxs};
+      border-radius: ${borderRadiusSmall};
+      transform: translateX(0.8rem);
+      transition: all 0.2s;
+      position: absolute;
+      top: ${spacingXxs};
+      right: ${spacingDefault};
 
-  &:hover {
-    background-color: #eee;
-    cursor: pointer;
-  }
+      &:hover {
+        background-color: ${colorGray25};
+        cursor: pointer;
+      }
 
-  & svg {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
+      & svg {
+        width: ${spacingS};
+        height: ${spacingS};
+      }
+    `;
+  }}
 `;
 
 type ModalProps = {
@@ -75,9 +98,9 @@ const Modal = ({ children, name }: ModalProps) => {
   return createPortal(
     <Overlay>
       <StyledModal ref={ref}>
-        <Button onClick={() => closeModal(name)}>
+        <CloseButton onClick={() => closeModal(name)}>
           <CloseIcon />
-        </Button>
+        </CloseButton>
         {children}
       </StyledModal>
     </Overlay>,

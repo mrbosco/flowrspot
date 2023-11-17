@@ -27,6 +27,7 @@ $spacing-s2: 1.38rem;
 $spacing-xs: 1rem;
 $spacing-xs2: 0.8rem;
 $spacing-xxs: 0.5rem;
+$spacing-xxxs: 0.1rem;
 
 :export {
   maximumDesktopSize: $maximum-desktop-size;
@@ -45,4 +46,5 @@ $spacing-xxs: 0.5rem;
   spacingXs: $spacing-xs;
   spacingXs2: $spacing-xs2;
   spacingXxs: $spacing-xxs;
+  spacingXxxs: $spacing-xxxs;
 }
